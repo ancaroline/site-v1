@@ -10,5 +10,15 @@
 
     --font-main: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
+
+}
+
     /*tema escuro - automático ou manual)*/
+    /* automático */
+@media(prefers-color-scheme: dark) {
+    :root {
+        --bg: #0d0d0d;
+        --text: #f2f2f2;
+        --muted: #9ca3af;
+    }
 }

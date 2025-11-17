@@ -1,18 +1,16 @@
-@import url('reset.css');
-@import url('variables.css');
 
 
 body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-main);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     padding: var(--padding);
+    min-height: 100vh;
 }
 
 .container {
+    margin: 0 auto;
     max-width: var(--maxw);
     width: 100%;
 }
@@ -33,10 +31,26 @@ p.lead {
 }
 
 main {
-    margin-top: 18px;
     display: grid;
     gap: 16px;
+    container-type: inline-size; /* ativa container query */
+    container-name: content;
 }
+
+/* Comportamento quando o container tiver espaço suficiente */
+@container content (min-width: 600px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@container content (min-width: 900px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
 
 a.btn {
     display: inline-block;
@@ -45,6 +59,12 @@ a.btn {
     border: 1px solid #d1d5db;
     font-weight: 600;
 }
+
+a.btn:hover {
+    background: color-mix(in srgb, var(--muted) 10%, transparent);
+}
+
+
 
 footer {
     margin-top: 40px;
