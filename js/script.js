@@ -14,13 +14,14 @@ iniciarHero();
 window.addEventListener("scroll", () => {
     const fade = Math.min(window.scrollY / 150, 1);
     const hero = document.querySelector(".hero h1");
+    const body = document.body;
 
     hero.style.opacity = 1 - fade;
     hero.style.transform = `translateY(${fade * -20}px)`;
 
-    if (fade >= 0.2) {
-        document.body.classList.add("scrolled");
+    if (fade >=0.7) {
+        body.classList.add("banner-visible");
     } else {
-        document.body.classList.remove("scrolled");
+        body.classList.remove("banner-visible");
     }
 });

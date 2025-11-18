@@ -5,7 +5,7 @@ body {
     color: var(--text);
     font-family: var(--font-main);
 
-    padding: var(--padding);
+    padding: 0 var(--padding);
     min-height: 100vh;
 }
 
@@ -13,20 +13,19 @@ body {
     margin: 0 auto;
     max-width: var(--maxw);
     width: 100%;
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-}
 
-/* escondido */
-body:not(.scrolled) .container {
+    /*transition: opacity 0.4s ease-out, transform 0.4s ease-out; */
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(20px);
+    animation: fadeIn 0.7s ease-out forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* retorna */
-body.scrolled .container {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 header {
     margin-bottom: 32px;
@@ -44,23 +43,8 @@ p.lead {
 }
 
 main {
-    display: grid;
-    gap: 16px;
-    container-type: inline-size; /* ativa container query */
-    container-name: content;
-}
-
-/* Comportamento quando o container tiver espaço suficiente */
-@container content (min-width: 600px) {
-    main {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@container content (min-width: 900px) {
-    main {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    display: block;
+    padding: 16px;
 }
 
 .hero {
@@ -103,6 +87,28 @@ a.btn {
 
 a.btn:hover {
     background: color-mix(in srgb, var(--muted) 10%, transparent);
+}
+
+/* banner */
+
+.top-banner {
+    width: 100%;
+    background: #f1f5f9;
+    border-bottom: 1px solid #d1d5db;
+    padding: 16px 0;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity .3s ease-out, transform .3s ease-out;
+
+    pointer-events: none;
+}
+
+body.banner-visible .top-banner {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 /* navbar */
@@ -162,6 +168,53 @@ a.btn:hover {
     user-select: none;
 }
 
+/* layout de 3 colunas abaixo da navbar */
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+
+    container-type: inline-size;
+    container-name: content;
+}
+
+/* laterais com borda azul fina */
+.side-section {
+    border: 1px solid #00BFFF;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+/* seção central maior */
+.main.section {
+    padding: 16px;
+}
+
+/* Container Queries */
+/* Comportamento quando o container tiver espaço suficiente */
+/* @container content (min-width: 600px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@container content (min-width: 900px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+*/
+@container content (max-width: 700px) {
+    .content-layout {
+        grid-template-columns: 1fr; /* vira 1 coluna */
+    }
+
+    .left-side,
+    .right-side {
+        display: none; /* esconde laterais no mobile */
+    }
+}
 
 
 footer {
