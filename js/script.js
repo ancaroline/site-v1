@@ -12,7 +12,13 @@ async function iniciarHero() {
 iniciarHero();
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 30) {
+    const fade = Math.min(window.scrollY / 150, 1);
+    const hero = document.querySelector(".hero h1");
+
+    hero.style.opacity = 1 - fade;
+    hero.style.transform = `translateY(${fade * -20}px)`;
+
+    if (fade >= 0.2) {
         document.body.classList.add("scrolled");
     } else {
         document.body.classList.remove("scrolled");
