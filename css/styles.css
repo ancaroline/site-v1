@@ -121,7 +121,7 @@ a.btn:hover {
 /* conteúdo centralizado dentro da barra */
 .navbar-inner {
     display: flex;
-    gap: 24px;
+    justify-content: space-between;
     align-items: center;
 
     max-width: var(--maxw);
@@ -129,6 +129,12 @@ a.btn:hover {
 
     border-bottom: 1px solid rgba(0,0,0,0.1); /* traço central */
     padding-bottom: 12px;
+}
+
+.navbar-left {
+    display: flex;
+    gap: 24px;
+    align-items: center;
 }
 
 .navbar a {
@@ -142,6 +148,12 @@ a.btn:hover {
 
 .navbar a:hover {
     opacity: 0.6;
+}
+
+.navbar-logo {
+    height: 28px;
+    opacity: 0.9;
+    user-select: none;
 }
 
 
