@@ -110,7 +110,7 @@ a.btn:hover {
 /* a barra inteira fica fixa */
 .navbar {
     width: 100%;
-    background: #ffffff;
+    background: var(--bg);
     padding: 12px 0;
 
     position: sticky;
@@ -120,14 +120,20 @@ a.btn:hover {
 
 /* conteúdo centralizado dentro da barra */
 .navbar-inner {
+
+    background: var(--bg-nav);
+    border-bottom: 1px solid var(--border-nav);
+    
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     max-width: var(--maxw);
     margin: 0 auto;
 
-    border-bottom: 1px solid rgba(0,0,0,0.1); /* traço central */
+    border-radius: 12px 12px 0 0;
+
+     /* traço central */
     padding-bottom: 12px;
 }
 
@@ -151,7 +157,7 @@ a.btn:hover {
 }
 
 .navbar-logo {
-    height: 28px;
+    height: 25px;
     opacity: 0.9;
     user-select: none;
 }

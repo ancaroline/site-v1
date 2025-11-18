@@ -1,24 +1,29 @@
 :root {
 
-    /*tema claro*/
+    /* tema claro */
     --bg: #ffffff;
     --text: #111111;
     --muted: #6b7280;
+
+    --bg-nav: #00BFFF;            /* navbar clara */
+    --border-nav: rgba(0,0,0,0.1);
 
     --maxw: 900px;
     --padding: 24px;
 
     --font-main: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-
-
 }
 
-    /*tema escuro - automático ou manual)*/
-    /* automático */
+
+/* tema escuro */
 @media(prefers-color-scheme: dark) {
     :root {
-        --bg: #0d0d0d;
-        --text: #f2f2f2;
+        --bg: #0d0d0d;            /* fundo principal */
+        --text: #f2f2f2;          /* texto */
         --muted: #9ca3af;
+
+        --bg-nav: #00BFFF;        /* navbar um tom acima do fundo */
+        --border-nav: rgba(255,255,255,0.08);  /* linha suave e elegante */
+
     }
 }
