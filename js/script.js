@@ -15,6 +15,7 @@ window.addEventListener("scroll", () => {
     const fade = Math.min(window.scrollY / 150, 1);
     const hero = document.querySelector(".hero h1");
     const body = document.body;
+    const banner = document.querySelector(".top-banner");
 
     hero.style.opacity = 1 - fade;
     hero.style.transform = `translateY(${fade * -20}px)`;
@@ -24,4 +25,9 @@ window.addEventListener("scroll", () => {
     } else {
         body.classList.remove("banner-visible");
     }
+
+    // Parallax
+
+    const offset = window.scrollY * 0.1; // velocidade
+    banner.style.backgroundPositionY = `${offset}px`;
 });
